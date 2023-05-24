@@ -3,11 +3,13 @@
 bool DivisibilityCriterion::operator()(int32_t num) const{
 	size_t ctr = 0;
 	unsigned size = _numbers.getSize();
+
 	for (int i = 0; i < size; i++) {
 		if (num % _numbers[i] == 0) {
 			ctr++;
 		}
 	}
+
 	return ctr == _divisibleCount;
 }
 

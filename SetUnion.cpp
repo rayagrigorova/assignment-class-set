@@ -10,6 +10,6 @@ bool SetUnion::contains(int32_t num) const {
 	return false;
 }
 
-SetUnion::SetUnion() {
+SetUnion::SetUnion(const SetCollection& arr) : SetOperation(arr){
 	_type = SetType::Union;
 }

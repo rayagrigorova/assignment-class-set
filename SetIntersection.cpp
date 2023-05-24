@@ -10,6 +10,6 @@ bool SetIntersection::contains(int32_t num) const {
 	return true;
 }
 
-SetIntersection::SetIntersection() {
+SetIntersection::SetIntersection(const SetCollection& arr) : SetOperation(arr){
 	_type = SetType::intersection;
 }

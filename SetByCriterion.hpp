@@ -13,8 +13,8 @@ public:
 };
 
 template <typename P>
-SetByCriterion<P>::SetByCriterion(const P& pred) : _pred(pred), _type(SetType::byCriterion){
-
+SetByCriterion<P>::SetByCriterion(const P& pred) : _pred(pred){
+	_type = SetType::byCriterion;
 }
 
 template <typename P>

@@ -5,5 +5,8 @@
 
 class SetOperation : public Set {
 protected:
-	SetCollection _arr;
+	const SetCollection& _arr;
+public:
+	SetOperation(const SetCollection& arr) : _arr(arr) { }
+	SetOperation() = default;
 };
