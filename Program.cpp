@@ -77,16 +77,16 @@ Set* Program::readFile(const char* fileName) {
 		break;
 	}
 
-	std::cout << "\nSet iteration inside readFile()\n";
-	switch (set->getType()) {
-		case SetType::standard: std::cout << "Standard\n"; break;
-		case SetType::byCriterion: std::cout << "By criterion\n"; break;
-		case SetType::intersection: std::cout << "Intersection\n"; break;
-		case SetType::Union: std::cout << "Union\n"; break;
-		case SetType::unknown: std::cout << "Unknown\n"; break;
-	}
-	set->iterateSet(_a, _b);
-	std::cout << "\n\n";
+	//std::cout << "\nSet iteration inside readFile()\n";
+	//switch (set->getType()) {
+	//	case SetType::standard: std::cout << "Standard\n"; break;
+	//	case SetType::byCriterion: std::cout << "By criterion\n"; break;
+	//	case SetType::intersection: std::cout << "Intersection\n"; break;
+	//	case SetType::Union: std::cout << "Union\n"; break;
+	//	case SetType::unknown: std::cout << "Unknown\n"; break;
+	//}
+	//set->iterateSet(_a, _b);
+	//std::cout << "\n\n";
 	
 	file.close();
 	return set; 

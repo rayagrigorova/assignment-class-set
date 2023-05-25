@@ -28,7 +28,7 @@ void Iterator::iterateInModeOne() {
 // Generate on request 
 void Iterator::iterateInModeTwo() {
 	while (1) {
-		std::cout << "Type 'g' to generate the next number from the set:\n";
+		std::cout << "\nType 'g' to generate the next number from the set:\n";
 		char ch;
 		std::cin >> ch; 
 		if (ch == 'g') {
