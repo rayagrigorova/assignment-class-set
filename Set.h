@@ -21,5 +21,5 @@ public:
 	virtual Set* clone() const = 0;
 
 	// Iterate the current set 
-	virtual void iterateSet(int32_t minVal, int32_t maxVal) = 0;
+	virtual void iterateSet(int32_t minVal, int32_t maxVal) const = 0;
 };

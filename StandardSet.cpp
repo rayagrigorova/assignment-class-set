@@ -29,14 +29,7 @@ Set* StandardSet::clone() const {
 	return new StandardSet(*this);
 }
 
-void StandardSet::iterateSet(int32_t minVal, int32_t maxVal) {
+void StandardSet::iterateSet(int32_t minVal, int32_t maxVal) const{
 	StandardIterator iter(minVal, maxVal, *this); 
-	while (1) {
-		try {
-			iter.getNextValue();
-		}
-		catch (NoNextException& e) {
-			break;
-		}
-	}
+	iter.iterateSet();
 }

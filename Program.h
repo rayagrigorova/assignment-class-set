@@ -1,13 +1,10 @@
 #pragma once
 
-#include "UniquePointer.hpp"
 #include "Set.h"
-#include "MyString.h"
 #include "SetCollection.h"
 
 #include <iostream>
 #include <fstream>
-
 
 enum class Mode {
 	modeOne,
@@ -24,8 +21,9 @@ class Program {
 	Set* readFile(const char* fileName);
 
 	// The set created using the readFile() function will be iterated using this function 
-	void iterateSet(const Set* set);
+	void iterateGeneratedSet(const Set* set);
 
+	// Depending on the type of the binary file, call one of the following functions to handle it
 	Set* formatZero(int16_t N, std::ifstream& ifs); 
 	Set* formatOne(int16_t N, std::ifstream& ifs);
 	Set* formatTwo(int16_t N, std::ifstream& ifs);

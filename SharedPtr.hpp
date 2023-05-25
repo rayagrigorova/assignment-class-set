@@ -30,6 +30,10 @@ public:
 template <typename T>
 void SharedPtr<T>::free()
 {
+	if (pointersCount == nullptr) {
+		return;
+	}
+
 	if (*pointersCount == 1)
 	{
 		delete data;

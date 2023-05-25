@@ -13,7 +13,7 @@
 #include "Iterator.h"
 
 void  Program::chooseMode() {
-	std::cout << "Enter 1 for mode 1\n Enter 2 for mode 2";
+	std::cout << "Enter 1 for mode 1\nEnter 2 for mode 2\n";
 	char ch; 
 	std::cin >> ch;
 
@@ -39,7 +39,7 @@ void  Program::chooseMode() {
 void Program::run() {
 	chooseMode();
 	Set* generatedSet = readFile("set.dat");
-	iterateSet(generatedSet);
+	iterateGeneratedSet(generatedSet);
 	delete[] generatedSet;
 }
 
@@ -48,14 +48,14 @@ Set* Program::readFile(const char* fileName) {
 	std::ifstream file(fileName, std::ios::binary);
 
 	if (!file.is_open()) {
-		return;
+		return nullptr;
 	}
 
 	int16_t T, N;
 	file.read((char*)&N, sizeof(N));
 	file.read((char*)&T, sizeof(T));
 
-	Set* set;
+	Set* set = nullptr;
 
 	switch (T) {
 	case 0:
@@ -77,16 +77,17 @@ Set* Program::readFile(const char* fileName) {
 		break;
 	}
 	
-	return set; 
 	file.close();
+	return set; 
 }
 
 // The set created using the readFile() function will be iterated using this function 
-void Program::iterateSet(const Set* set) {
-	
+void Program::iterateGeneratedSet(const Set* set) {
+	set->iterateSet(_a, _b);
 }
 
 namespace {
+	// A function to read an array of numbers from a binary file 
 	void readArrayFromFile(std::ifstream& ifs, int16_t N, DynamicArray<int32_t>& arr) {
 		int32_t current;
 
@@ -100,12 +101,7 @@ namespace {
 // A standard set of N numbers
 Set* Program::formatZero(int16_t N, std::ifstream& ifs) {
 	DynamicArray<int32_t> arr;
-	int32_t current;
-
-	for (int i = 0; i < N; i++) {
-		ifs.read((char*)&current, sizeof(current));
-		arr.pushBack(current);
-	}
+	readArrayFromFile(ifs, N, arr);
 	return new StandardSet(arr);
 }
 
@@ -144,14 +140,15 @@ Set* Program::formatFour(int16_t N, std::ifstream& ifs) {
 }
 
 void Program::addSetsToCollection(std::ifstream& ifs, SetCollection& collection, int16_t N) {
-	char ch;
+	char ch = 'x';
 
 	for (int i = 0; i < N; i++) {
 		// Read the current string
 		char fileName[MAX_FILENAME_LEN];
 		size_t ind = 0;
 
-		while (ifs.get(ch)) {
+		while (ch != '\0') {
+			ifs.get(ch);
 			fileName[ind++] = ch;
 		}
 

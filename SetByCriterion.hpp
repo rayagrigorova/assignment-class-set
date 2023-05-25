@@ -10,8 +10,6 @@ protected:
 public:
 	SetByCriterion(const P& pred);
 	bool contains(int32_t num) const override;
-
-	Set* clone() const override;
 };
 
 template <typename P>
@@ -26,7 +24,4 @@ bool SetByCriterion<P>::contains(int32_t num) const{
 	// that has an overloaded operator () 
 }
 
-template <typename P>
-Set* SetByCriterion<P>::clone() const {
-	return new SetByCriterion<P>(*this);
-}
+

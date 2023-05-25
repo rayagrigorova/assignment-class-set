@@ -16,7 +16,7 @@ public:
 	StandardSet(const DynamicArray<int32_t>& numbers);
 
 	Set* clone() const override;
-	void iterateSet(int32_t minVal, int32_t maxVal) override;
+	void iterateSet(int32_t minVal, int32_t maxVal) const override;
 
 	friend class StandardIterator;
 };

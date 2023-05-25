@@ -10,4 +10,7 @@ public:
 	SetByDivisibility(const DivisibilityCriterion& criterion) : SetByCriterion(criterion){}
 
 	friend class IteratorByCriterion;
+
+	void iterateSet(int32_t minVal, int32_t maxVal) const override;
+	Set* clone() const override;
 };
