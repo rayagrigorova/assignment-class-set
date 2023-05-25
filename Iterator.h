@@ -6,7 +6,7 @@ class Iterator {
 protected:
 	// Range if not specified, the max value is the max value for INT32_T
 	int32_t _minVal = -1;
-	int32_t _maxVal = -1;
+	int32_t _maxVal = INT32_MAX;
 
 	// The principle of operation of both functions is the same for all derived classes,
 	// the only difference is in the virtual functions getNextValue() and getValue()

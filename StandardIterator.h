@@ -5,7 +5,7 @@
 
 class StandardIterator : public Iterator {
 	StandardSet _set;
-	int currentInd = 0; 
+	int currentInd = -1; 
 public:
 	StandardIterator(int32_t minVal, int32_t maxVal, const StandardSet& set);
 	int32_t getNextValue() override;

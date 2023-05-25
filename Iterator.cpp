@@ -11,11 +11,11 @@ Iterator::Iterator(int32_t minVal, int32_t maxVal) : _minVal(minVal), _maxVal(ma
 void Iterator::iterateInModeOne() {
 	while (1) {
 		try {
-			getNextValue();
-
 			if (getValue() > _maxVal) {
 				break;
 			}
+
+			getNextValue();
 
 			std::cout << getValue() << " "; 
 		}
@@ -47,12 +47,10 @@ void Iterator::iterateInModeTwo() {
 }
 
 void Iterator::iterateSet() {
-	// A valid interval 
-	if (_minVal != _maxVal) {
+	if (_maxVal != INT32_MAX) {
 		iterateInModeOne(); 
 		return;
 	}
 
-	// Not a valid interval, with _minVal == _maxVal
 	iterateInModeTwo();
 }

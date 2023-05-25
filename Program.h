@@ -15,7 +15,7 @@ enum class Mode {
 class Program {
 	Mode _mode = Mode::unknown;
 	int _a = -1; 
-	int _b = -1;
+	int _b = INT32_MAX;
 
 	// Here, a set will be created using information from a binary file 
 	Set* readFile(const char* fileName);

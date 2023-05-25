@@ -23,6 +23,7 @@ StandardSet::StandardSet() {
 
 StandardSet::StandardSet(const DynamicArray<int32_t>& numbers) {
 	_numbers = numbers;
+	_type = SetType::standard;
 }
 
 Set* StandardSet::clone() const {
