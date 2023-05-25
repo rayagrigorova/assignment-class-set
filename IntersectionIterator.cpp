@@ -29,6 +29,7 @@ int32_t IntersectionIterator::getValue() {
 	return _val;
 }
 
+
 IntersectionIterator::IntersectionIterator(int32_t minVal, int32_t maxVal, const SetIntersection& set) : _set(set), Iterator(minVal, maxVal){
-	_val = minVal;
+	_val = minVal; // Start iterating from the first possible value 
 }

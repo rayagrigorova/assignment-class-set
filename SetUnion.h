@@ -9,5 +9,7 @@ public:
 	bool contains(int32_t num) const override;
 	SetUnion(const SetCollection& arr);
 
+	Set* clone() const override;
+
 	friend class UnionIterator;
 };

@@ -13,3 +13,7 @@ bool SetIntersection::contains(int32_t num) const {
 SetIntersection::SetIntersection(const SetCollection& arr) : SetOperation(arr){
 	_type = SetType::intersection;
 }
+
+Set* SetIntersection::clone() const{
+	return new SetIntersection(*this);
+}

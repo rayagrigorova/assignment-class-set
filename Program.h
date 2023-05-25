@@ -3,17 +3,22 @@
 #include "UniquePointer.hpp"
 #include "Set.h"
 #include "MyString.h"
+#include "SetCollection.h"
 
 #include <iostream>
 #include <fstream>
 
+
 enum class Mode {
 	modeOne,
-	modeTwo
+	modeTwo,
+	unknown
 };
 
 class Program {
-	Mode _mode;
+	Mode _mode = Mode::unknown;
+	int _a = -1; 
+	int _b = -1;
 
 	// Here, a set will be created using information from a binary file 
 	Set* readFile(const char* fileName);
@@ -27,10 +32,10 @@ class Program {
 	Set* formatThree(int16_t N, std::ifstream& ifs);
 	Set* formatFour(int16_t N, std::ifstream& ifs);
 
+	void addSetsToCollection(std::ifstream& ifs, SetCollection& collection, int16_t N);
+
+	void chooseMode(); 
+
 public:
-	Program(const Mode& mode);
-
 	void run();
-	
-
 };

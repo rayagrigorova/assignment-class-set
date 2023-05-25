@@ -1,4 +1,6 @@
 #include "StandardSet.h"
+#include "StandardIterator.h"
+#include "NoNext.h"
 
 void StandardSet::addNumber(int32_t number) {
 	_numbers.pushBack(number);
@@ -21,4 +23,20 @@ StandardSet::StandardSet() {
 
 StandardSet::StandardSet(const DynamicArray<int32_t>& numbers) {
 	_numbers = numbers;
+}
+
+Set* StandardSet::clone() const {
+	return new StandardSet(*this);
+}
+
+void StandardSet::iterateSet(int32_t minVal, int32_t maxVal) {
+	StandardIterator iter(minVal, maxVal, *this); 
+	while (1) {
+		try {
+			iter.getNextValue();
+		}
+		catch (NoNextException& e) {
+			break;
+		}
+	}
 }

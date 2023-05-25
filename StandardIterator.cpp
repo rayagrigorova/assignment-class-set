@@ -1,9 +1,14 @@
 #include "StandardIterator.h"
+#include "NoNext.h"
+
+StandardIterator::StandardIterator(int32_t minVal, int32_t maxVal, const StandardSet& set) : Iterator(minVal, maxVal), _set(set){
+	
+}
 
 int32_t StandardIterator::getNextValue() {
 	currentInd++;
 	if (currentInd > _set._numbers.getSize()) {
-		throw std::out_of_range("The last value for the array has been reached");
+		throw NoNextException();
 	}
 
 	return _set._numbers[currentInd];

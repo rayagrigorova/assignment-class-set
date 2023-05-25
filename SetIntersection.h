@@ -10,5 +10,7 @@ public:
 
 	SetIntersection(const SetCollection& arr);
 
+	Set* clone() const override;
+
 	friend class IntersectionIterator;
 };

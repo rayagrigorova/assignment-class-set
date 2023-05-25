@@ -23,5 +23,5 @@ int32_t UnionIterator::getValue() {
 }
 
 UnionIterator::UnionIterator(int32_t minVal, int32_t maxVal, const SetUnion& set) : _set(set), Iterator(minVal, maxVal) {
-	_val = minVal;
+	_val = minVal; // start iterating from the first possible value 
 }

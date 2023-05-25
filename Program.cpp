@@ -9,11 +9,35 @@
 #include "SetIntersection.h"
 #include "SetUnion.h"
 
-Program::Program(const Mode& mode) : _mode(mode){
-	
+#include "NoNext.h"
+#include "Iterator.h"
+
+void  Program::chooseMode() {
+	std::cout << "Enter 1 for mode 1\n Enter 2 for mode 2";
+	char ch; 
+	std::cin >> ch;
+
+	switch (ch) {
+	case '1':
+		_mode = Mode::modeOne;
+		break;
+	case '2':
+		_mode = Mode::modeTwo;
+		break;
+	}
+
+	if (_mode == Mode::modeOne) {
+		std::cout << "Enter two numbers (a and b):\n";
+
+		int a, b;
+		std::cin >> a >> b;;
+		_a = a;
+		_b = b;
+	}
 }
 
 void Program::run() {
+	chooseMode();
 	Set* generatedSet = readFile("set.dat");
 	iterateSet(generatedSet);
 	delete[] generatedSet;
@@ -59,7 +83,7 @@ Set* Program::readFile(const char* fileName) {
 
 // The set created using the readFile() function will be iterated using this function 
 void Program::iterateSet(const Set* set) {
-
+	
 }
 
 namespace {
@@ -103,15 +127,23 @@ Set* Program::formatTwo(int16_t N, std::ifstream& ifs) {
 	return new SetByDivisibility(criterion);
 }
 
-namespace {
-
-}
-
 const int MAX_FILENAME_LEN = 100;
 
 // N strings, each terminated by 0, paths to files specifying sets. The union of the sets represents the current set. 
 Set* Program::formatThree(int16_t N, std::ifstream& ifs) {
 	SetCollection collection; 
+	addSetsToCollection(ifs, collection, N);
+	return new SetUnion(collection);
+}
+
+// N strings, each terminated by 0, paths to files specifying sets. The intersection of the sets represents the current set. 
+Set* Program::formatFour(int16_t N, std::ifstream& ifs) {
+	SetCollection collection;
+	addSetsToCollection(ifs, collection, N);
+	return new SetIntersection(collection);
+}
+
+void Program::addSetsToCollection(std::ifstream& ifs, SetCollection& collection, int16_t N) {
 	char ch;
 
 	for (int i = 0; i < N; i++) {
@@ -123,14 +155,7 @@ Set* Program::formatThree(int16_t N, std::ifstream& ifs) {
 			fileName[ind++] = ch;
 		}
 
-		Set* resultSet = readFile(fileName);
-		switch
+		// Create a set of unknown type and add it to the collection 
+		collection.add(readFile(fileName));
 	}
-
-	return new SetUnion(collection);
-}
-
-// N strings, each terminated by 0, paths to files specifying sets. The intersection of the sets represents the current set. 
-Set* Program::formatFour(int16_t N, std::ifstream& ifs) {
-
 }

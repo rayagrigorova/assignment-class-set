@@ -4,9 +4,10 @@
 #include "StandardSet.h"
 
 class StandardIterator : public Iterator {
-	const StandardSet& _set;
+	StandardSet _set;
 	int currentInd = 0; 
 public:
+	StandardIterator(int32_t minVal, int32_t maxVal, const StandardSet& set);
 	int32_t getNextValue() override;
 	int32_t getValue() override;
 };

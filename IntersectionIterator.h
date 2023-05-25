@@ -4,7 +4,7 @@
 #include "SetIntersection.h"
 
 class IntersectionIterator : public Iterator {
-	const SetIntersection& _set;
+	SetIntersection _set;
 	int32_t _val;
 public:
 	int32_t getNextValue() override;
