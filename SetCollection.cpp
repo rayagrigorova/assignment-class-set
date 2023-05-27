@@ -30,5 +30,5 @@ void SetCollection::add(const Set* set) {
 	// Create a copy of the set using clone() - overridden by all derived classes 
 	Set* toAdd = set->clone();
 	SharedPtr<Set> ptr(toAdd);
-	_sets.pushBack(std::move(ptr));
+	_sets.pushBack(ptr);
 }

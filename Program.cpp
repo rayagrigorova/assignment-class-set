@@ -30,14 +30,26 @@ void  Program::chooseMode() {
 		std::cout << "Enter two numbers (a and b):\n";
 
 		int a, b;
-		std::cin >> a >> b;;
+		std::cin >> a >> b;
+
+		if (a >= b) {
+			throw std::invalid_argument("The interval you have entered is invalid.");
+		}
+
 		_a = a;
 		_b = b;
 	}
 }
 
 void Program::run() {
-	chooseMode();
+	try {
+		chooseMode();
+	}
+	catch (std::invalid_argument& e) {
+		std::cout << e.what() << std::endl;
+		return;
+	}
+
 	Set* generatedSet = readFile("set.dat");
 	iterateGeneratedSet(generatedSet);
 	delete[] generatedSet;
