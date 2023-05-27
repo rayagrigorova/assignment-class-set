@@ -17,13 +17,8 @@ bool StandardSet::contains(int32_t num) const {
 	return false;
 }
 
-StandardSet::StandardSet() {
-	_type = SetType::standard;
-}
-
 StandardSet::StandardSet(const DynamicArray<int32_t>& numbers) {
 	_numbers = numbers;
-	_type = SetType::standard;
 }
 
 Set* StandardSet::clone() const {

@@ -13,7 +13,7 @@ bool SetUnion::contains(int32_t num) const {
 }
 
 SetUnion::SetUnion(const SetCollection& arr) : SetOperation(arr){
-	_type = SetType::Union;
+
 }
 
 Set* SetUnion::clone() const {

@@ -12,7 +12,7 @@ public:
 	void addNumber(int32_t number);
 	bool contains(int32_t num) const override;
 
-	StandardSet(); 
+	StandardSet() = default; 
 	StandardSet(const DynamicArray<int32_t>& numbers);
 
 	Set* clone() const override;
