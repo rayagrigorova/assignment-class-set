@@ -28,5 +28,5 @@ void SetCollection::add(const Set* set) {
 
 	// Transfer data ownership to SharedPtr - now SharedPtr manages Set's resources 
 	SharedPtr<Set> ptr(toAdd);
-	_sets.pushBack(ptr);
+	_sets.pushBack(std::move(ptr));
 }

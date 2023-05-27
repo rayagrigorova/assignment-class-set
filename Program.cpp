@@ -1,15 +1,13 @@
 #include "Program.h"
+
 #include "DynamicArray.hpp"
+#include "DivisibilityCriterion.h"
+#include "NoNext.h"
 
 #include "StandardSet.h"
-#include "DivisibilityCriterion.h"
 #include "SetByDivisibility.h"
-#include "SetCollection.h"
-
 #include "SetIntersection.h"
 #include "SetUnion.h"
-
-#include "NoNext.h"
 
 void  Program::chooseMode() {
 	std::cout << "Enter 1 for mode 1\nEnter 2 for mode 2\n";
@@ -54,7 +52,7 @@ void Program::run() {
 	delete[] generatedSet;
 }
 
-// Here, a set will be created using information from a binary file 
+// Create a set using information from a binary file 
 Set* Program::readFile(const char* fileName) {
 	std::ifstream file(fileName, std::ios::binary);
 
@@ -150,6 +148,7 @@ Set* Program::formatFour(int16_t N, std::ifstream& ifs) {
 	return new SetIntersection(collection);
 }
 
+// A helper function to read filenames and add the sets from the files to a collection 
 void Program::addSetsToCollection(std::ifstream& ifs, SetCollection& collection, int16_t N) {
 	for (int i = 0; i < N; i++) {
 		// Read the current string
@@ -162,7 +161,7 @@ void Program::addSetsToCollection(std::ifstream& ifs, SetCollection& collection,
 			fileName[ind++] = ch;
 		}
 
-		// Create a set of unknown type and add it to the collection 
+		// Create a set of some type and add it to the collection 
 		collection.add(readFile(fileName));
 	}
 }

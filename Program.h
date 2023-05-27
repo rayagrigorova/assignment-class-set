@@ -18,7 +18,6 @@ class Program {
 	int _a = -1; 
 	int _b = MAX_VALUE;
 
-	// Here, a set will be created using information from a binary file 
 	Set* readFile(const char* fileName);
 
 	// The set created using the readFile() function will be iterated using this function 

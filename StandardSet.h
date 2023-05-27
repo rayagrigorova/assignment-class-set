@@ -10,6 +10,7 @@ class StandardSet : public Set {
 
 public:
 	void addNumber(int32_t number);
+
 	bool contains(int32_t num) const override;
 
 	StandardSet() = default; 

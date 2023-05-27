@@ -1,6 +1,9 @@
 #include "IntersectionIterator.h"
-
 #include "NoNext.h"
+
+IntersectionIterator::IntersectionIterator(int32_t minVal, int32_t maxVal, const SetIntersection& set) : _set(set), Iterator(minVal, maxVal) {
+	_val = minVal - 1; // Start iterating from the first possible value 
+}
 
 int32_t IntersectionIterator::getNextValue() {
 	while (1) {
@@ -13,6 +16,7 @@ int32_t IntersectionIterator::getNextValue() {
 		int size = _set._arr.size();
 		bool flag = true;
 
+		// All sets should contain the value
 		for (int i = 0; i < size && flag; i++) {
 			if (!(*_set._arr[i]).contains(_val)) {
 				flag = false;
@@ -30,6 +34,4 @@ int32_t IntersectionIterator::getValue() {
 }
 
 
-IntersectionIterator::IntersectionIterator(int32_t minVal, int32_t maxVal, const SetIntersection& set) : _set(set), Iterator(minVal, maxVal){
-	_val = minVal; // Start iterating from the first possible value 
-}
+

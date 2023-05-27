@@ -8,7 +8,7 @@ const int32_t MAX_VALUE = 100000;
 
 class Iterator {
 protected:
-	// Range if not specified, the max value is the max value for INT32_T
+
 	int32_t _minVal = -1;
 	int32_t _maxVal = MAX_VALUE;
 
