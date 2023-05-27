@@ -40,6 +40,7 @@ public:
 	T& operator[](size_t index);
 
 	void erase(size_t pos);
+	bool contains(const T& el) const;
 };
 
 template <typename T>
@@ -232,4 +233,14 @@ void DynamicArray<T>::erase(size_t pos) {
 		arr[i] = arr[i + 1];
 	}
 	size--;
+}
+
+template<typename T>
+bool DynamicArray<T>::contains(const T& el) const {
+	for (int i = 0; i < size; i++) {
+		if (arr[i] == el) {
+			return true;
+		}
+	}
+	return false;
 }

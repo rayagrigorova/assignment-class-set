@@ -4,6 +4,7 @@
 #include "SetUnion.h"
 
 class UnionIterator : public Iterator {
+	// constant reference to the set - the iterator should exist at most as long as the set exists
 	const SetUnion& _set;
 	int32_t _val; 
 public:

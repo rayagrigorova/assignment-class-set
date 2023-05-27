@@ -11,12 +11,7 @@ Iterator::Iterator(int32_t minVal, int32_t maxVal) : _minVal(minVal), _maxVal(ma
 void Iterator::iterateInModeOne() {
 	while (1) {
 		try {
-			if (getValue() > _maxVal) {
-				break;
-			}
-
-			getNextValue();
-
+			getNextValue(); // This function throws an exception if the next value is too high or doesn't exist
 			std::cout << getValue() << " "; 
 		}
 		catch (NoNextException& e) {
@@ -31,6 +26,7 @@ void Iterator::iterateInModeTwo() {
 		std::cout << "\nType 'g' to generate the next number from the set:\n";
 		char ch;
 		std::cin >> ch; 
+
 		if (ch == 'g') {
 			try {
 				getNextValue();
@@ -40,6 +36,7 @@ void Iterator::iterateInModeTwo() {
 				break;
 			}
 		}
+
 		else {
 			std::cout << "The command you have entered is invalid.\n";
 		}
@@ -47,10 +44,9 @@ void Iterator::iterateInModeTwo() {
 }
 
 void Iterator::iterateSet() {
-	if (_maxVal != INT32_MAX) {
+	if (_maxVal != MAX_VALUE) {
 		iterateInModeOne(); 
 		return;
 	}
-
 	iterateInModeTwo();
 }

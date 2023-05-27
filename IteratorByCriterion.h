@@ -4,7 +4,8 @@
 #include "SetByDivisibility.h"
 
 class IteratorByCriterion : public Iterator {
-	SetByDivisibility _set;
+	// constant reference to the set - the iterator should exist at most as long as the set exists
+	const SetByDivisibility& _set; 
 	int32_t _val = 0;
 
 public:

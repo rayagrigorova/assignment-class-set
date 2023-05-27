@@ -1,10 +1,11 @@
 #pragma once
 
 #include "DynamicArray.hpp"
+#include "StandardSet.h"
 
 // A class that behaves like a function 
 class DivisibilityCriterion {
-	DynamicArray<int32_t> _numbers; 
+	StandardSet _numbers;
 
 	// This variable's value is the count of the numbers, by which a given number should be divisible 
 	// in order to fulfill the criterion. For example, if the criterion is that a number shouldn't 
@@ -17,9 +18,8 @@ public:
 
 	DivisibilityCriterion() = default;
 	DivisibilityCriterion(const DynamicArray<int32_t>& numbers, size_t divisibleCount);
+
 	void setDivisibleCount(size_t divisibleCount);
-
 	void addNumber(int32_t number);
-
 };
 

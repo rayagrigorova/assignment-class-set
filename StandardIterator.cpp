@@ -1,6 +1,9 @@
 #include "StandardIterator.h"
 #include "NoNext.h"
 
+StandardIterator::StandardIterator(const StandardSet& set) : _set(set) {
+}
+
 StandardIterator::StandardIterator(int32_t minVal, int32_t maxVal, const StandardSet& set) : Iterator(minVal, maxVal), _set(set){
 	
 }

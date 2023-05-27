@@ -19,6 +19,7 @@ int32_t IteratorByCriterion::getValue() {
 	return _val;
 }
 
-IteratorByCriterion::IteratorByCriterion(const SetByDivisibility& set, int32_t minVal, int32_t maxVal) : Iterator(minVal, maxVal), _set(set){
+IteratorByCriterion::IteratorByCriterion(const SetByDivisibility& set, int32_t minVal, int32_t maxVal)
+	: Iterator(minVal, maxVal), _set(set){
 
 }

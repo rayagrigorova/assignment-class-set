@@ -10,7 +10,6 @@
 #include "SetUnion.h"
 
 #include "NoNext.h"
-#include "Iterator.h"
 
 void  Program::chooseMode() {
 	std::cout << "Enter 1 for mode 1\nEnter 2 for mode 2\n";

@@ -18,5 +18,7 @@ public:
 	Set* clone() const override;
 	void iterateSet(int32_t minVal, int32_t maxVal) const override;
 
+	size_t getSize() const; 
+
 	friend class StandardIterator;
 };

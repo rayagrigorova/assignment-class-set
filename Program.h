@@ -2,6 +2,7 @@
 
 #include "Set.h"
 #include "SetCollection.h"
+#include "Iterator.h"
 
 #include <iostream>
 #include <fstream>
@@ -15,7 +16,7 @@ enum class Mode {
 class Program {
 	Mode _mode = Mode::unknown;
 	int _a = -1; 
-	int _b = INT32_MAX;
+	int _b = MAX_VALUE;
 
 	// Here, a set will be created using information from a binary file 
 	Set* readFile(const char* fileName);
