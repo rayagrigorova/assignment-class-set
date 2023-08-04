@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 
-#include "Program.h"
-#include "CreateFiles.h"
+#include "Program/Program.h"
+#include "CreateFiles/CreateFiles.h"
 
 int main() {
 	createBinaryFiles();
